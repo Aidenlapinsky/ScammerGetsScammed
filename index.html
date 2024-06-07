@@ -5,11 +5,21 @@
 </head>
 <body>
     <h1>Your IP Address is: <span id="ip-address"></span></h1>
+    <p id="location"></p>
+    <p id="scammer-message">Scammer get scammed. We have now tracked your exact location, authorities are being contacted.</p>
+    <p id="police-radio-code">10-20, we have a suspect in custody. Requesting backup at location. Over.</p>
 
     <script>
         fetch('https://api.ipify.org?format=json')
-           .then(response => response.json())
-           .then(data => document.getElementById('ip-address').textContent = data.ip);
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('ip-address').textContent = data.ip;
+            fetch(`https://ipapi.co/${data.ip}/json/`)
+              .then(response => response.json())
+              .then(locationData => {
+                document.getElementById('location').textContent = `Your location is: ${locationData.city}, ${locationData.region}, ${locationData.country_name} (${locationData.latitude}, ${locationData.longitude})`;
+              });
+          });
     </script>
 </body>
 </html>
