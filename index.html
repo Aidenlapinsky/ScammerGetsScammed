@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Your IP Address is: <span id="ip-address"></span></h1>
+
+    <script>
+        fetch('https://api.ipify.org?format=json')
+           .then(response => response.json())
+           .then(data => document.getElementById('ip-address').textContent = data.ip);
+    </script>
+</body>
+</html>
