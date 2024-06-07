@@ -11,3 +11,20 @@ h1 {
     font-weight: bold;
     color: #00698f;
 }
+
+#location {
+    font-size: 16px;
+    color: #666;
+}
+
+#scammer-message {
+    font-size: 18px;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+#police-radio-code {
+    font-size: 16px;
+    color: #666;
+    font-style: italic;
+}
